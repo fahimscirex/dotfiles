@@ -1,0 +1,64 @@
+###################################################################################
+#
+#
+#  Conky Config by Khiky Merveilles
+#  You can edit it as you like, Enjoy..
+#
+#
+###################################################################################
+
+background yes
+update_interval 1
+total_run_times 0
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_margin 5
+border_width 1
+no_buffers yes
+uppercase yes
+cpu_avg_samples 2
+net_avg_samples 2
+short_units yes
+text_buffer_size 2048
+use_spacer none
+override_utf8_locale yes
+
+# Size and Position settings #
+alignment top_right
+gap_x -70
+gap_y 30
+minimum_size 500 200
+maximum_width 500
+
+# Text settings #
+use_xft yes
+xftalpha 1
+xftfont Roboto:size=13
+override_utf8_locale yes
+
+# Color Settings #
+default_shade_color FFFFFF
+default_outline_color FFFFFF
+default_color 1E1F29
+color1 212021 
+
+# Window Settings #
+own_window yes
+own_window_type dock
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_value 0
+own_window_argb_visual no
+own_window_colour 000000
+
+TEXT
+${alignc 160}${voffset 2}${color}${font League Gothic:bold:size=65}${time %H:%M}${font Roboto:size=17}
+${offset 193}${color}${voffset -82}${font Roboto:size=17}${time %A}
+${offset 193}${color}${voffset -5}${font Roboto:bold:size=18}${time %d %b %Y}
+${execi 120 ~/.conky/Almach/scripts/weather.sh}
+${offset 193}${color}${voffset -45}${font Roboto:size=10}Weather : ${execi 100 cat ~/.cache/weather.json | jq -r '.weather[0].main'}, ${execi 60 ~/.conky/Almach/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.temp')}°C
+${image bg.png -s 400x100 -p 0,0}

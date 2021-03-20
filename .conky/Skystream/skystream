@@ -1,0 +1,33 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+
+conky.config = {
+	alignment = 'middle_middle',
+	background = false,
+	cpu_avg_samples = 1,
+	default_color = 'white',
+	draw_borders = false,
+	draw_outline = false,
+	draw_shades = false,
+	use_xft = true,
+	font = 'Exo 2 ExtraLight:size=40',
+	gap_x = 75,
+	gap_y = -80,
+	minimum_height = 300,
+	minimum_width = 480,
+	double_buffer = true,
+	out_to_console = false,
+	out_to_stderr = false,
+	own_window = true,
+	own_window_transparent = true,
+	own_window_class = 'conky',
+	own_window_type = 'desktop',
+	update_interval = 1,
+	color1 = 'B8B8B8',
+}
+
+conky.text = [[
+${time %d%m%Y}$color1 ${time %I:%M %p}$color
+${voffset 25}${font Exo 2 ExtraLight:size=32}$mem$color1    ${alignr 120}${font Exo 2 ExtraLight:size=10}.RANDOM ACCESS MEMORY${font Exo 2 ExtraLight:size=32}
+${voffset -30}$color$cpu$color1 % ${alignr 140}${font Exo 2 ExtraLight:size=10}.CENTRAL PROCESSING UNIT${font Exo 2 ExtraLight:size=32}
+${voffset -30}$color$acpitemp$color1°C    ${alignr 210}${font Exo 2 ExtraLight:size=10}.ACPI TEMPERATURE
+]]

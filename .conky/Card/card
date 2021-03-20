@@ -1,0 +1,66 @@
+alignment middle_right
+background no
+border_margin 0
+border_width 0
+cpu_avg_samples 2
+default_color ffffff		#
+default_outline_color 000000 	# 
+default_shade_color 000000	#
+double_buffer yes
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades no
+gap_x 20
+gap_y -50
+max_specials 1024
+max_user_text 10000
+maximum_width 1000
+minimum_size 240 360
+net_avg_samples 2
+no_buffers yes
+override_utf8_locale yes
+own_window yes
+own_window_colour 000000
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent yes
+own_window_type normal 	## normal
+pad_percents 2			
+short_units yes			
+stippled_borders 3
+text_buffer_size 10
+total_run_times 0
+update_interval 2.0
+uppercase no
+use_spacer right
+use_xft yes
+xftalpha 1
+
+own_window_argb_value 0
+own_window_argb_visual no
+color1 = '000000',
+
+TEXT
+${offset 10}${voffset 0}${font ADELE:size=22}
+\
+# --- Weather --- #
+###################
+\
+# --- WOEID (Location id) --- #
+${execi 300 ./scripts/weather.sh}\
+\
+# --- Temperature --- #
+#######################
+\
+${font RobotoCondensed:size=52}$alignr${offset -20}${voffset 94}${execi 100 ./scripts/kelvin2celsius.sh $(cat ~/.cache/eleg-weather.json | jq '.main.temp')}${voffset -23}${font RobotoCondensed:size=40}°
+\
+# --- Textual condition (e.g. Partly cloudy) --- #
+##################################################
+\
+${font RobotoCondensed:bold:size=15}$alignr${offset -27}${voffset -20}${execi 100 cat ~/.cache/weather.json | jq -r '.weather[0].main'}
+\
+# Time #
+####################################################
+${voffset 35}$alignc${font RobotoCondensed:bold:size=17}${color 000000}${time %H:%M} - ${execi 100 cat ~/.cache/eleg-weather.json | jq -r '.name'}
+${voffset 0}$alignc${font RobotoCondensed:size=13}${time %A, %d %B}
+${image ~/.conky/Weather_no01/caseconky.png -p 0,0}

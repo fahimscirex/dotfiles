@@ -1,0 +1,59 @@
+conky.config = {
+	background = true,
+	update_interval = 1,
+	total_run_times = 0,
+	double_buffer = true,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = true,
+	draw_graph_borders = false,
+	stippled_borders = 0,
+	border_margin = '0',
+	border_width = 0,
+	no_buffers = true,
+	uppercase = true,
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	short_units = true,
+	text_buffer_size = 2048,
+	use_spacer = 'none',
+	override_utf8_locale = true,
+
+-- Size and Position settings #
+	alignment = 'top_left',
+	gap_x = 20,
+	gap_y = 50,
+	minimum_width = 400, 
+	minimum_height = 100,
+
+-- Text settings #
+	use_xft = true,
+	xftalpha = 1,
+	font = 'Alata:size=13',
+	override_utf8_locale = true,
+
+-- Color Settings #
+	default_shade_color = '#FFFFFF',
+	default_outline_color = '#FFFFFF',
+	default_color = '#1E1F29',
+	color1 = '#212021',
+
+-- Window Settings #
+	own_window = true,
+	own_window_type = 'dock',
+	own_window_transparent = false,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+	own_window_colour = '#000000',
+	own_window_argb_visual = true,
+	own_window_argb_value = 0,
+
+};
+
+conky.text = [[
+${alignc 110}${voffset 2}${color}${font League Gothic:bold:size=65}${time %H:%M}${font Roboto:size=17}
+${offset 220}${color}${voffset -82}${font Roboto:size=17}${time %A}
+${offset 220}${color}${voffset -5}${font Roboto:bold:size=18}${time %d %b %Y}
+${execi 300 ~/.conky/scripts/weather.sh}
+${offset 220}${color}${voffset -45}${font Alata:size=10}Weather : ${execi 100 cat ~/.cache/weather.json | jq -r '.weather[0].main'}, ${execi 100 ~/.conky/Almach/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.temp')}°C
+${image bg.png -s 400x100 -p 0,0}
+]];

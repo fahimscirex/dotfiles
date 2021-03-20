@@ -1,0 +1,58 @@
+# **********************************************************************
+# 
+# 		By Khiky Merveilles
+#
+# **********************************************************************
+
+
+background yes
+double_buffer yes
+
+alignment top_right
+
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color black
+default_shade_color black
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+gap_x 110
+gap_y 0
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual no
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 120 300
+stippled_borders 5
+update_interval 1
+uppercase no
+use_spacer none
+text_buffer_size 2048
+
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftalpha 0.1
+xftfont Lemon Milk:size=12
+color0 white
+
+TEXT
+${voffset 40}${alignc 4}${color0}${font Aller:bold:size=40}${time %d}
+${voffset -25}${alignc 2}${color0}${font Aller:bold:size=20}${time %^b}
+${image ~/.conky/Nunki/images/bg3.png -p 0,-150 -s 120x360}
+

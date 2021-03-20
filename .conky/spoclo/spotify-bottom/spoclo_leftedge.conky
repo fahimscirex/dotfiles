@@ -1,0 +1,72 @@
+---------------------------------------------------------------------
+-- CONKY THEME: Spoclo
+-- Author: Dacha204
+-- Variant: Right Edge, Spotify Indicator Below Time
+-- Github: 
+-- Based on:
+--		* https://github.com/Madh93/conky-spotify
+--		* http://www.deviantart.com/art/Conky-Metro-Clock-245432929
+---------------------------------------------------------------------
+
+conky.config = {
+
+	background = true,
+	update_interval = 1,
+
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 2048,
+
+-- CUSTOMIZE THIS SECTION
+	alignment = 'middle_left',
+	gap_x = 35,
+	gap_y = -35,
+
+
+-- DONT CHANGE
+-- (if you change keep:
+-- min_height > time.height + day.height + month.height + spotify.height)
+-- if min_height is too low, time position will go up/down ~15px depending of spotify player state (on/off)
+
+	minimum_height = 350,
+	minimum_width = 300,
+	maximum_width = 800,
+
+	own_window = true,
+	own_window_type = 'dock',
+
+	own_window_argb_visual = true,
+	own_window_transparent = true,
+
+	own_window_class = 'conky-semi',
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+	border_inner_margin = 0,
+	border_outer_margin = 1,
+
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+
+	override_utf8_locale = true,
+	use_xft = true,
+	font = 'Open Sans Light:size=20',
+	xftalpha = 0.5,
+	uppercase = false,
+	imlib_cache_size = 0,
+
+	-- Defining colors
+	default_color = '#FFFFFF',
+};
+
+conky.text = [[
+${voffset 0}${font GE Inspira:size=25}${time %A}${font}${voffset 0}
+${voffset 5}${font GE Inspira:size=25}${time %B} ${time %e}${font}${voffset -5}
+${voffset -20}${font Noto Sans:size=100}${time %I:%M %p}${font}${voffset 20}
+${if_running spotify}\
+	${voffset -38}
+	${image ~/.conky/spoclo/spotify_icon.png -p 0,210 -s 65x65}\
+	${goto 70}${voffset 0}${font GE Inspira Bold:size=18}${exec ~/.conky/spoclo/scripts/artist.sh}${font}${voffset -0}
+	${goto 70}${voffset -12}${font GE Inspira:size=16}${exec ~/.conky/spoclo/scripts/title.sh}${font}${voffset 12}\
+${endif}\
+]];

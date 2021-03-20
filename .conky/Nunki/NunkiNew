@@ -1,0 +1,79 @@
+conky.config = {
+-- **********************************************************************
+-- 
+-- 		By Khiky Merveilles
+--		You can change this config as you want ^-~
+
+-- **********************************************************************
+
+
+	background = true,
+	double_buffer = true,
+
+	alignment = 'bottom_left',
+
+	border_width = 1,
+	cpu_avg_samples = 2,
+	default_color = 'white',
+	default_outline_color = 'white',
+	default_shade_color = 'white',
+	draw_borders = false,
+	draw_graph_borders = true,
+	draw_outline = false,
+	draw_shades = false,
+
+	gap_x = 100,
+	gap_y = -230,
+	net_avg_samples = 2,
+	no_buffers = true,
+	out_to_console = false,
+	out_to_stderr = false,
+	extra_newline = false,
+
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_transparent = true,
+	own_window_colour = '#000000',
+	own_window_argb_visual = false,
+	own_window_argb_value = 0,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+
+	minimum_width = 410, minimum_height = 200,
+	stippled_borders = 5,
+	update_interval = 1,
+	uppercase = false,
+	use_spacer = 'none',
+
+	show_graph_scale = false,
+	show_graph_range = false,
+
+	use_xft = true,
+	xftalpha = 0.1,
+	font = 'Lemon Milk:size=12',
+	color0 = 'white',
+	color1 = '#0288CD',
+
+};
+
+conky.text = [[
+${voffset 0}${color0}${font Aller:bold:size=70}${time %a}${color1}.
+${image ~/.conky/Nunki/images/line.png -p 0,130 -s 70x2}
+${image ~/.conky/Nunki/images/bg.png -p 90,119 -s 60x25}
+${offset 100}${voffset -288}${color0}${font Aller:bold:size=10}${time %H:%M}
+# --- WOEID (Location id) --- #
+${execi 300 ~/.conky/Nunki/scripts/weather.sh}
+${offset 0}${voffset 30}${color0}${font Aller:bold:size=10}In ${execi 100 cat ~/.cache/weather.json | jq -r '.name'}, ${color1}${execi 100 cat ~/.cache/weather.json | jq -r '.sys.country'}
+${offset 0}${voffset 0}${color0}${font Aller:bold:size=10}Weather will be ${execi 100 cat ~/.cache/weather.json | jq -r '.weather[0].main'}, with feel like  ${execi 100 ~/.conky/Nunki/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.feels_like')}°C and minimum
+${offset 0}${voffset 1}${color0}${font Aller:bold:size=10}${execi 100 ~/.conky/Nunki/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.temp_min')}°C, Humidity ${execi 100 (cat ~/.cache/weather.json | jq '.main.humidity')}% and the wind speed is ${execi 100 (cat ~/.cache/weather.json | jq '.wind.speed')} mph
+
+
+${image ~/.conky/Nunki/images/line.png -p 0,289 -s 260x2}
+${image ~/.conky/Nunki/images/bg.png -p 300,275 -s 50x50}
+${image ~/.conky/Nunki/images/bgw.png -p 360,275 -s 49x49}
+${offset 0}${voffset -20}${color0}${font Aller:bold:size=10}${if_running audacious}<< Now Playing >>${else}No music played$endif
+${offset 0}${voffset }${color1}${font Aller:bold:size=12}${if_running audacious}${audacious_title 50}${else}-$endif
+${voffset -60}${offset 308}${color0}${font Aller:bold:size=10}CPU:
+${voffset }${offset 308}${color0}${font Aller:bold:size=10}${cpu cpu0}%
+${voffset -35}${offset 368}${color1}${font Aller:bold:size=10}RAM:
+${voffset }${offset 368}${color1}${font Aller:bold:size=10}${memperc}%
+]];

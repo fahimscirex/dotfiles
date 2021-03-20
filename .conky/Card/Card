@@ -1,0 +1,73 @@
+conky.config = {
+	alignment = 'bottom_left',
+	background = false,
+	border_margin = '0',
+	border_width = 0,
+	cpu_avg_samples = 2,
+	default_color = '#ffffff',
+	default_outline_color = '#ffffff', 
+	default_shade_color = '#ffffff',
+	double_buffer = true,
+	draw_borders = false,
+	draw_graph_borders = false,
+	draw_outline = false,
+	draw_shades = false,
+	gap_x = 50,
+	gap_y = 50,
+	max_specials = '1024',
+	max_user_text = 10000,
+	maximum_width = 240,
+	maximum_height = 360,
+	minimum_width = 240, 
+	minimum_height = 360,
+	net_avg_samples = 2,
+	no_buffers = true,
+	override_utf8_locale = true,
+
+	pad_percents = 5,
+	short_units = true,
+	stippled_borders = 0,
+	text_buffer_size = 10,
+	total_run_times = 0,
+	update_interval = 1,
+	uppercase = false,
+	use_spacer = 'right',
+	use_xft = true,
+	xftalpha = 1,
+
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+	own_window_colour = '000000',
+	own_window_argb_visual = true,
+	own_window_argb_value = 50,
+
+};
+
+conky.text = [[
+${offset 0}${voffset 0}${font Alata:size=22}
+\
+# --- Weather --- #
+###################
+\
+# --- WOEID (Location id) --- #
+${execi 300  ~/.conky/scripts/weather.sh}\
+\
+# --- Temperature --- #
+#######################
+\
+${font Alata:size=50}$alignr${offset 0}${voffset 80}${execi 100 ~/.conky/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.temp')}${voffset -30}${font Alata:size=40}°
+\
+# --- Textual condition (e.g. Partly cloudy) --- #
+##################################################
+\
+${font Alata:bold:size=15}$alignr${offset -40}${voffset -12}${execi 100 cat ~/.cache/weather.json | jq -r '.weather[0].main'}
+\
+# Time #
+####################################################
+${voffset 5}$alignc${font MADE GoodTime Grotesk:regular:size=17}${color 000000}${time %I:%M %p}
+$alignc ${exec cat ~/.cache/weather.json | jq -r '.name'}
+${voffset 0}$alignc${font Alata:size=11}${time %A, %d %B}
+${image ~/.conky/Card/RickNMorty.png -p 0,0}
+]];
