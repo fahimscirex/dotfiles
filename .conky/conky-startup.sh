@@ -18,7 +18,7 @@ if [ "$DESKTOP_SESSION" = "gnome-xorg" ]; then
    conky -c "$HOME/.config/conky/Process" &
    cd "$HOME/.conky/Sirius"
    conky -c "$HOME/.conky/Sirius/Sirius" &
-   cd "$HOME/.conky/spoclo/spotify-top"
-   conky -c "$HOME/.conky/spoclo/spotify-top/spoclo_rightedge.conky" &
+   cd "$HOME/.conky"
+   conky -c "$HOME/.conky/bar" &
    exit 0
 fi
