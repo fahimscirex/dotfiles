@@ -47,6 +47,9 @@ alias off="systemctl poweroff -i"
 alias boot="systemctl reboot -i"
 alias paste="curl -F 'sprunge=<-' http://sprunge.us"
 alias ydl="youtube-dl -x --audio-format mp3 --prefer-ffmpeg"
+alias won="wg-quick up wgcf-profile"
+alias woff="wg-quick down wgcf-profile"
+alias wforce="sudo rm -rf wgcf-profile.conf && wgcf generate && sudo rm -rf /etc/wireguard/wgcf-profile.conf && sudo cp wgcf-profile.conf /etc/wireguard"
 
 # -- Colorscheme -- #
 # Import colorscheme from 'wal' asynchronously
