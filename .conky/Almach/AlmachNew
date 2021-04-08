@@ -23,8 +23,9 @@ conky.config = {
 	alignment = 'top_left',
 	gap_x = 20,
 	gap_y = 50,
-	minimum_width = 400, 
+	minimum_width = 350, 
 	minimum_height = 100,
+	maximum_width = 400,
 
 -- Text settings #
 	use_xft = true,
@@ -33,24 +34,24 @@ conky.config = {
 	override_utf8_locale = true,
 
 -- Color Settings #
-	default_shade_color = '#FFFFFF',
-	default_outline_color = '#FFFFFF',
+--	default_shade_color = '#FFFFFF',
+--	default_outline_color = '#FFFFFF',
 	default_color = '#1E1F29',
 	color1 = '#212021',
 
 -- Window Settings #
 	own_window = true,
-	own_window_type = 'dock',
-	own_window_transparent = false,
-	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
-	own_window_colour = '#000000',
-	own_window_argb_visual = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+--	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+--	own_window_colour = '#000000',
+--	own_window_argb_visual = true,
 	own_window_argb_value = 0,
 
 };
 
 conky.text = [[
-${alignc 110}${voffset 2}${color}${font League Gothic:bold:size=65}${time %H:%M}${font Roboto:size=17}
+${alignc 100}${voffset 2}${color}${font League Gothic:bold:size=65}${time %H:%M}${font Roboto:size=17}
 ${offset 220}${color}${voffset -82}${font Roboto:size=17}${time %A}
 ${offset 220}${color}${voffset -5}${font Roboto:bold:size=18}${time %d %b %Y}
 ${execi 300 ~/.conky/scripts/weather.sh}

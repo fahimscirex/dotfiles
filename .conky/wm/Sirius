@@ -1,0 +1,74 @@
+conky.config = {
+
+	background = true,
+	update_interval = 1,
+	total_run_times = 0,
+	double_buffer = true,
+	
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+
+	stippled_borders = 0,
+	border_margin = '5',
+	border_width = 1,
+	default_color = '#000000',
+	
+	minimum_width = 220, 
+	minimum_height = 100,
+	maximum_width = 300,
+	
+	gap_x = 50,
+	gap_y = 160,
+	alignment = 'top_left',
+	no_buffers = true,
+	uppercase = false,
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	short_units = true,
+	text_buffer_size = 1024,
+	use_spacer = 'none',
+	override_utf8_locale = true,
+
+-- Text settings #
+	use_xft = true,
+	xftalpha = 1,
+	font = 'Roboto:size=9',
+	override_utf8_locale = true,
+
+-- Color scheme #
+	default_color = 'white',
+	color1 = '#212021',
+	color2 = '#E8E1E6',
+	color3 = '#0165FE',
+
+-- Window Type #
+	own_window = true,
+	own_window_type = 'desktop',
+	own_windows_class = 'conky',
+	own_window_argb_visual = true,
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+};
+
+conky.text = [[
+${image ~/.conky/Sirius/images/red.png -p 60,170 -s 120x30}
+${color grey}${Font Roboto:bold:size=10}${execi 1200 date -d -2day +%d}
+${voffset 33}${Font Roboto:bold:size=10}${color grey}${execi 1200 date -d -1day +%d}
+${image ~/.conky/Sirius/images/line.png -p 0,135 -s 45x5}
+${offset 65}${font Roboto:bold:size=50}${color}${time %d}
+${voffset -30}${color grey}${Font Roboto:bold:size=10}${execi 1200 date -d +1day +%d}
+${voffset 35}${color grey}${Font Roboto:bold:size=10}${execi 1200 date -d +2day +%d}
+${voffset 35}${color grey}${Font Roboto:bold:size=10}${execi 1200 date -d +3day +%d}
+${voffset 35}${color grey}${Font Roboto:bold:size=10}${execi 1200 date -d +4day +%d}
+${offset 77}${color}${voffset -190}${font METROPOLIS:bold:size=12}${time %a & %b}
+# --- WOEID (Location id) --- #
+${execi 300 ~/.conky/scripts/weather.sh}
+${offset 65}${voffset -10}${color0}${font METROPOLIS:bold:size=19}Today in ${execi 100 cat ~/.cache/weather.json | jq -r '.name'},
+${offset 65}${voffset 5}${color0}${font METROPOLIS:bold:size=19}${execi 100 cat ~/.cache/weather.json | jq -r '.weather[0].description'}, with
+${offset 65}${voffset 5}${color0}${font METROPOLIS:bold:size=19}${execi 100 ~/.conky/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.temp')}°C
+${offset 65}${voffset 50}${font Feather:size=9} ${font Roboto:size=9}- Feel like temperature is ${execi 100 ~/.conky/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.feels_like')}°C
+${offset 65}${voffset -50}${font Feather:size=9} ${font Roboto:size=9}- Wind speed in your Location is ${execi 100 (cat ~/.cache/weather.json | jq '.wind.speed')} mph
+${offset 65}${voffset 0}${font Feather:size=9} ${font Roboto:size=9}- And humidity ${execi 100 (cat ~/.cache/weather.json | jq '.main.humidity')}%
+]];
