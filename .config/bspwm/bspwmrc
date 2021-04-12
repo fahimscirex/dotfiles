@@ -60,7 +60,7 @@ for i in ${office[@]}; do
    bspc rule -a $i desktop='^4' follow=on focus=on; done
 
 # 5 > media
-declare -a media=(Audacity mpv mplayer Inkscape lxmusic Gimp Gimp-2.8)
+declare -a media=(Audacity mplayer Inkscape lxmusic Gimp Gimp-2.8)
 for i in ${media[@]}; do
    bspc rule -a $i desktop='^5' follow=on focus=on; done
 
@@ -139,6 +139,10 @@ exec qbittorrent &
 
 # Start Flameshot
 exec flameshot &
+
+# Caffeine
+exec caffeine &
+exec caffeine-indicator &
 
 # Issue Tracker (Don't Remove IT)
 issue_tracker.sh
