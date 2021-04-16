@@ -132,6 +132,7 @@ alias search="yay -Ss"
 alias yayupd="yay -Sy"
 alias yayupg="yay -Syu"
 alias out="yay -Rcns"
+alias orphan="sudo pacman -Qdtq | sudo pacman -Rs -"
 
 alias emergeins="$PRIV emerge -av"
 alias emergepv="$PRIV emerge -pv"
@@ -167,3 +168,6 @@ alias wforce="sudo rm -rf wgcf-profile.conf && wgcf generate && sudo rm -rf /etc
 
 # Energized
 alias eng="sudo sh ~/Downloads/scripts/energized.sh"
+
+# ytfzf
+alias yt="ytfzf -s -t -f --preview-side=left"

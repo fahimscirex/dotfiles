@@ -61,7 +61,7 @@ for i in ${office[@]}; do
    bspc rule -a $i desktop='^4' follow=on focus=on; done
 
 # 5 > media
-declare -a media=(Audacity mplayer Inkscape lxmusic Gimp Gimp-2.8)
+declare -a media=(Audacity mplayer stremio Inkscape lxmusic Gimp Gimp-2.8)
 for i in ${media[@]}; do
    bspc rule -a $i desktop='^5' follow=on focus=on; done
 
@@ -88,6 +88,8 @@ bspc rule -a Telegram state=floating follow=on focus=on
 bspc rule -a Plank state=floating follow=on focus=on
 bspc rule -a Spotify state=floating follow=on focus=on
 bspc rule -a Pcmanfm state=floating follow=on focus=on
+bspc rule -a mpv state=floating follow=on focus=on
+
 ## Autostart -------------------------------#
 
 # Kill if already running
@@ -144,6 +146,9 @@ exec flameshot &
 # Caffeine
 exec caffeine &
 exec caffeine-indicator &
+
+# Emoji Keyboard
+exec emote &
 
 # Issue Tracker (Don't Remove IT)
 issue_tracker.sh
