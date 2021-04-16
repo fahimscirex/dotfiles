@@ -48,7 +48,7 @@ bspc rule -r *:*
 
 # 2 > web
 bspc rule -a firefox desktop='^2' follow=on focus=on
-bspc rule -a brave-browser desktop='^2' follow=on focus=on
+bspc rule -a chromium desktop='^2' follow=on focus=on
 
 # 3 > file
 bspc rule -a stremio desktop='^3' follow=on focus=on
