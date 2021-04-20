@@ -171,3 +171,8 @@ alias eng="sudo sh ~/Downloads/scripts/energized.sh"
 
 # ytfzf
 alias yt="ytfzf -s -t -f --preview-side=left"
+
+# Anbox Container
+alias anon="sudo systemctl start anbox-container-manager.service"
+alias anoff="sudo systemctl stop anbox-container-manager.service"
+autoload -Uz spm pm
