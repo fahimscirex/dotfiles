@@ -20,7 +20,7 @@ conky.config = {
 -- CUSTOMIZE THIS SECTION
 	alignment = 'middle_right',
 	gap_x = 35,
-	gap_y = 305,
+	gap_y = -145,
 
 
 -- DONT CHANGE
