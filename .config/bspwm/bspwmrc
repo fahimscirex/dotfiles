@@ -120,7 +120,7 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 xsetroot -cursor_name left_ptr
 
 # Restore wallpaper
-bash $HOME/.fehbg
+#bash $HOME/.fehbg
 
 # Start mpd
 #exec mpd &
@@ -142,7 +142,7 @@ bspfloat &
 exec setxkbmap -layout us,bd -variant ,probhat -option grp:win_space_toggle &
 
 # Start qBittorrent
-exec qbittorrent &
+#exec qbittorrent &
 
 # Start Flameshot
 exec flameshot &
@@ -153,6 +153,9 @@ exec caffeine &
 
 # Emoji Keyboard
 exec emote &
+
+# Start Telegram Userbot
+#userbot &
 
 # Polkit
 exec /usr/bin/polkit-dumb-agent &

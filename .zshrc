@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/home/fahim/.local/bin:$PATH 
 
 # Path to Gem executables
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
