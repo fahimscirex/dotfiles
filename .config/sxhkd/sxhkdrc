@@ -2,7 +2,7 @@
 
 # Terminal (termite)
 super + Return
-	bspterm
+	kitty
 
 # Floating terminal
 super + shift + Return
@@ -35,15 +35,21 @@ super + shift + {f,w,e}
 
 # Take a screenshot
 Print
-	flameshot full -p ~/Pictures/Screenshot
+    maim -m 10 | xclip -selection clipboard -t image/png
+
+shift + Print
+    maim -s -m 10 | xclip -selection clipboard -t image/png
+
+alt + Print
+    maim -m 10 ~/Pictures/Screenshot/Full-$(date +%s).png
+
+ctrl + Print
+    maim -s -m 10 ~/Pictures/Screenshot/Scaled-$(date +%s).png
 
 #scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
 
 # Take a screenshot in 5 second
 #scrot -d 5 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
-
-alt + Print	
-		flameshot full -c
 
 # Brighness control
 XF86MonBrightness{Up,Down}
@@ -64,7 +70,9 @@ XF86Audio{Next,Prev,Play,Stop}
 
 # Lockscreen
 super + l
-    betterlockscreen -l
+    betterlockscreen -l dim -t "Fahim Montasir Misbah"
+super + alt + l
+    betterlockscreen -l dim -s -t "Fahim Montasir Misbah"
 
 # Reload Keybindings
 super + Escape

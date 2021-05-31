@@ -20,7 +20,7 @@ getcolors () {
 getcolors
 
 ## Configurations -------------------------------#
-bspc monitor -d 'I' 'II' 'III' 'IV' 'V' 'VI' 'VII' 'VIII'
+bspc monitor -d 'I' 'II' 'III' 'IV' 'V' 'VI' 'VII' 'VIII' 'IX' 'X'
 
 bspc config border_width 1
 bspc config window_gap 5
@@ -70,8 +70,7 @@ for i in ${media[@]}; do
    bspc rule -a $i desktop='^5' follow=on focus=on; done
 
 # 6 > settings
-bspc rule -a GParted desktop='^6' follow=on focus=on
-declare -a settings=(Lxappearance Lxtask Lxrandr Arandr \
+declare -a settings=(GParted Lxappearance Lxtask Lxrandr Arandr \
 System-config-printer.py Pavucontrol Exo-helper-1)
 for i in ${settings[@]}; do
    bspc rule -a $i desktop='^6' state=floating follow=on focus=on; done
@@ -113,14 +112,11 @@ sxhkd &
 ksuperkey -e 'Super_L=Alt_L|F1' &
 ksuperkey -e 'Super_R=Alt_L|F1' &
 
-# Enable power management
-#xfce4-power-manager &
-
 # Fix cursor
 xsetroot -cursor_name left_ptr
 
 # Restore wallpaper
-#bash $HOME/.fehbg
+bash $HOME/.fehbg
 
 # Start mpd
 #exec mpd &
@@ -135,17 +131,11 @@ bspbar
 conky.sh
 bspfloat &
 
-# Start Plank Dock
-#exec plank &
-
 # Set Keyboard Layout
 exec setxkbmap -layout us,bd -variant ,probhat -option grp:win_space_toggle &
 
 # Start qBittorrent
-#exec qbittorrent &
-
-# Start Flameshot
-exec flameshot &
+exec qbittorrent &
 
 # Caffeine
 exec caffeine &
@@ -153,9 +143,6 @@ exec caffeine &
 
 # Emoji Keyboard
 exec emote &
-
-# Start Telegram Userbot
-#userbot &
 
 # Polkit
 exec /usr/bin/polkit-dumb-agent &
