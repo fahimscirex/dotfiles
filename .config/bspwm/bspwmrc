@@ -2,6 +2,7 @@
 
 ## Environtment
 export PATH="${PATH}:$HOME/.config/bspwm/bin"
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 ## Get colors from .Xresources -------------------------------#
 xrdb ~/.Xresources
@@ -143,6 +144,9 @@ exec caffeine &
 
 # Emoji Keyboard
 exec emote &
+
+# Flameshot
+exec flamesot &
 
 # Polkit
 exec /usr/bin/polkit-dumb-agent &

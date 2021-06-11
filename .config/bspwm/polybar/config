@@ -758,7 +758,7 @@ content-font = 2
 inherit = module/apps
 content-font = 3
 content = 
-click-left = termite &
+click-left = kitty &
 
 [module/files]
 inherit = module/apps
@@ -777,7 +777,7 @@ click-right = chromium &
 inherit = module/apps
 content = 
 content-font = 2
-click-left = telegram-desktop &
+click-left = kotatogram-desktop &
 click-right = caprine &
 
 [module/mail]
