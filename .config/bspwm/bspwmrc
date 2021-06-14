@@ -146,7 +146,7 @@ exec caffeine &
 exec emote &
 
 # Flameshot
-exec flamesot &
+exec flameshot &
 
 # Polkit
 exec /usr/bin/polkit-dumb-agent &

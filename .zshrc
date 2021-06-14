@@ -161,6 +161,7 @@ alias termbin="nc termbin.com 9999 <"
 
 # YouTube-dl
 alias ydl="youtube-dl -x --audio-format mp3 --prefer-ffmpeg"
+alias yvid="youtube-dl --merge-output-format mp4"
 
 # WGCF
 alias won="wg-quick up wgcf-profile"
@@ -177,3 +178,9 @@ alias yt="ytfzf -s -t -f --preview-side=left"
 alias anon="sudo systemctl start anbox-container-manager.service"
 alias anoff="sudo systemctl stop anbox-container-manager.service"
 autoload -Uz spm pm
+
+# Systemd
+alias sc="systemctl"
+alias scs="systemctl start"
+alias scst="systemctl stop"
+alias scu="systemctl --user"
