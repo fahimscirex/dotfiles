@@ -1,0 +1,2 @@
+#!/bin/sh
+conky -c /home/fahim/.conky/wm/Sirius

@@ -93,11 +93,15 @@ bspc rule -a Spotify state=floating follow=on focus=on
 bspc rule -a Pcmanfm state=floating follow=on focus=on
 bspc rule -a mpv state=floating follow=on focus=on
 bspc rule -a emote state=floating follow=on focus=on
+bspc rule -a persepolis state=floating follow=on focus=on
+bspc rule -a file-roller state=floating follow=on focus=on
+bspc rule -a Org.gnome.Nautilus state=floating follow=on focus=on
+bspc rule -a zoom state=floating follow=on focus=on
 
 ## Autostart -------------------------------#
 
 # Kill if already running
-killall -9 sxhkd xsettingsd dunst
+killall -9 sxhkd xsettingsd dunst conky
 
 # Lauch notification daemon
 dunst \
@@ -117,7 +121,8 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 xsetroot -cursor_name left_ptr
 
 # Restore wallpaper
-bash $HOME/.fehbg
+#bash $HOME/.fehbg
+nitrogen --set-auto /usr/share/backgrounds/archlinux/simple.png
 
 # Start mpd
 #exec mpd &
@@ -143,10 +148,13 @@ exec caffeine &
 #exec caffeine-indicator &
 
 # Emoji Keyboard
-exec emote &
+#exec emote &
 
 # Flameshot
 exec flameshot &
 
 # Polkit
 exec /usr/bin/polkit-dumb-agent &
+
+# Adjust backlight (AMD)
+blight -d amdgpu_bl0 set 15% &

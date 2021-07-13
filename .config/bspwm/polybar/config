@@ -652,7 +652,7 @@ label = " %percentage%%"
 
 [module/speed]
 type = internal/network
-interface = enp4s0
+interface = eth0
 
 ; Seconds to sleep between updates
 ; Default: 1
@@ -759,12 +759,13 @@ inherit = module/apps
 content-font = 3
 content = 
 click-left = kitty &
+click-right = alacritty &
 
 [module/files]
 inherit = module/apps
 content = 
 content-font = 2
-click-left = pcmanfm &
+click-left = nautilus &
 
 [module/browser]
 inherit = module/apps
@@ -777,7 +778,7 @@ click-right = chromium &
 inherit = module/apps
 content = 
 content-font = 2
-click-left = kotatogram-desktop &
+click-left = telegram-desktop &
 click-right = caprine &
 
 [module/mail]

@@ -3,15 +3,14 @@ conky.config = {
 	background = true,
 	update_interval = 1,
 	total_run_times = 0,
-	double_buffer = true,
-	
+	dubble_buffer = true,
+
 	draw_shades = false,
 	draw_outline = false,
 	draw_borders = false,
 	draw_graph_borders = false,
 
 	stippled_borders = 0,
-	border_margin = '5',
 	border_width = 1,
 	default_color = '#000000',
 	
@@ -46,7 +45,6 @@ conky.config = {
 -- Window Type #
 	own_window = true,
 	own_window_type = 'desktop',
-	own_windows_class = 'conky',
 	own_window_argb_visual = true,
 	own_window_transparent = true,
 	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',

@@ -18,9 +18,9 @@ conky.config = {
 	text_buffer_size = 2048,
 
 -- CUSTOMIZE THIS SECTION
-	alignment = 'middle_right',
+	alignment = 'bottom_right',
 	gap_x = 35,
-	gap_y = -145,
+	gap_y = -80,
 
 
 -- DONT CHANGE

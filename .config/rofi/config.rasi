@@ -1,8 +1,8 @@
 configuration {
-  show-icons:         true;
-  icon-theme:         "Hybrid";
-  terminal:			  "termite";
-  cycle:              false;
-  hide-scrollbar:     true;
-  disable-history:    false;
+  show-icons:		true;
+  icon-theme:		"Hybrid";
+  terminal:		"kitty";
+  cycle:		true;
+  hide-scrollbar:	true;
+  disable-history:	false;
 }
