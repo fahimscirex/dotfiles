@@ -765,7 +765,7 @@ click-right = alacritty &
 inherit = module/apps
 content = 
 content-font = 2
-click-left = nautilus &
+click-left = pcmanfm &
 
 [module/browser]
 inherit = module/apps

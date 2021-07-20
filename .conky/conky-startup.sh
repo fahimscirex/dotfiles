@@ -33,6 +33,6 @@ if [ "$DESKTOP_SESSION" = "bspwm" ]; then
    sleep 5s
    killall conky
    cd "$HOME/.conky/wm"
-   conky -c "$HOME/.conky/wm/Spoclo" &
+   conky -c "$HOME/.conky/wm/Mesarthim" &
    exit 0
 fi

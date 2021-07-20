@@ -63,10 +63,10 @@ ${voffset 35}${color grey}${Font Roboto:bold:size=10}${execi 1200 date -d +4day 
 ${offset 77}${color}${voffset -190}${font METROPOLIS:bold:size=12}${time %a & %b}
 # --- WOEID (Location id) --- #
 ${execi 300 ~/.conky/scripts/weather.sh}
-${offset 65}${voffset -10}${color0}${font METROPOLIS:bold:size=19}Today in ${execi 100 cat ~/.cache/weather.json | jq -r '.name'},
+${offset 65}${voffset -8}${color0}${font METROPOLIS:bold:size=19}Today in ${execi 100 cat ~/.cache/weather.json | jq -r '.name'},
 ${offset 65}${voffset 5}${color0}${font METROPOLIS:bold:size=19}${execi 100 cat ~/.cache/weather.json | jq -r '.weather[0].description'}, with
 ${offset 65}${voffset 5}${color0}${font METROPOLIS:bold:size=19}${execi 100 ~/.conky/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.temp')}°C
-${offset 65}${voffset 50}${font Feather:size=9} ${font Roboto:size=9}- Feel like temperature is ${execi 100 ~/.conky/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.feels_like')}°C
-${offset 65}${voffset -50}${font Feather:size=9} ${font Roboto:size=9}- Wind speed in your Location is ${execi 100 (cat ~/.cache/weather.json | jq '.wind.speed')} mph
-${offset 65}${voffset 0}${font Feather:size=9} ${font Roboto:size=9}- And humidity ${execi 100 (cat ~/.cache/weather.json | jq '.main.humidity')}%
+${offset 65}${voffset 50}${font Feather:size=9} ${font Iosevka Fixed:size=10}- Feel like temperature is ${execi 100 ~/.conky/scripts/kelvin2celsius.sh $(cat ~/.cache/weather.json | jq '.main.feels_like')}°C
+${offset 65}${voffset -50}${font Feather:size=9} ${font Iosevka Fixed:size=10}- Wind speed is ${execi 100 (cat ~/.cache/weather.json | jq '.wind.speed')} mph
+${offset 65}${voffset 35}${font Feather:size=9} ${font Iosevka Fixed:size=10}- And humidity ${execi 100 (cat ~/.cache/weather.json | jq '.main.humidity')}%
 ]];

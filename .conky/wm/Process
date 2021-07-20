@@ -22,7 +22,7 @@ conky.config = {
 	draw_shades = false,
 
 	gap_x = 115,
-	gap_y = 250,
+	gap_y = 225,
 	net_avg_samples = 2,
 	no_buffers = true,
 	out_to_console = false,
@@ -49,7 +49,7 @@ conky.config = {
 
 	use_xft = true,
 	xftalpha = 0.1,
-	font = 'Droid Sans:size=10',
+	font = 'Iosevka Fixed:size=10',
 	color0 = 'white',
 	color1 = '#EAEAEA',
 	color2 = '#FFA300',
@@ -73,5 +73,4 @@ ${top_mem name 2} $alignr ${top_mem mem_res 2}
 ${top_mem name 3} $alignr ${top_mem mem_res 3}
 ${top_mem name 4} $alignr ${top_mem mem_res 4}
 ${top_mem name 5} $alignr ${top_mem mem_res 5}
-${execi 60 mv ~/Cheese*.png ~/Pictures/Screenshot}
 ]];
