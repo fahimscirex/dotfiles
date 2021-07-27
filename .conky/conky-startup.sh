@@ -36,3 +36,14 @@ if [ "$DESKTOP_SESSION" = "bspwm" ]; then
    conky -c "$HOME/.conky/wm/Mesarthim" &
    exit 0
 fi
+if [ "$DESKTOP_SESSION" = "Xfce Session" ]; then 
+   sleep 5s
+   killall conky
+   cd "$HOME/.conky"
+   conky -c "$HOME/.conky/clock.conf" &
+   cd "$HOME/.conky"
+   conky -c "$HOME/.conky/cpu.conf" &
+   cd "$HOME/.conky"
+   conky -c "$HOME/.conky/ram.conf" &
+   exit 0
+fi

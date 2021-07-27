@@ -134,8 +134,10 @@ exec parcellite &
 bspcolors
 bspcomp
 bspbar
-conky.sh
 bspfloat &
+
+# Conky scripts
+conky.sh &
 
 # Set Keyboard Layout
 exec setxkbmap -layout us,bd -variant ,probhat -option grp:win_space_toggle &
