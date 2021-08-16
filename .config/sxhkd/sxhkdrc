@@ -38,13 +38,16 @@ Print
     maim -m 10 | xclip -selection clipboard -t image/png
 
 shift + Print
-    maim -s -m 10 | xclip -selection clipboard -t image/png
+    xfce4-screenshooter -c -r
+
+alt + shift + Print
+    maim -s -m 10 | xclip -selection clipboard -t image/png 
 
 alt + Print
     maim -m 10 ~/Pictures/Screenshot/Full-$(date +%s).png
 
-ctrl + Print
-    maim -s -m 10 ~/Pictures/Screenshot/Scaled-$(date +%s).png
+ctrl + shift + Print
+    xfce-screenshooter -c -r ~/Pictures/Screenshot/Scaled-$(date +%s).png
 
 #scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
 
@@ -149,5 +152,9 @@ alt + shift + {Left,Down,Up,Right}
 # Hide/Unhide Window
 super + shift + i
 	winmask		
+
+# Splatmoji keybinding
+ctrl + alt + i
+  splatmoji type
 
 ##---------- EOF ----------##

@@ -1,0 +1,46 @@
+{
+  "name": "git-state",
+  "version": "4.1.0",
+  "description": "Get the current state of any git repository",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "touch dummy.file",
+    "test": "standard && tape test.js",
+    "posttest": "rm dummy.file"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/watson/git-state.git"
+  },
+  "dependencies": {
+    "after-all-results": "^2.0.0"
+  },
+  "devDependencies": {
+    "standard": "^10.0.2",
+    "tape": "^4.4.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "keywords": [
+    "git",
+    "status",
+    "state",
+    "branch",
+    "repo",
+    "repository",
+    "ahead",
+    "dirty",
+    "untracked"
+  ],
+  "author": "Thomas Watson Steen <w@tson.dk> (https://twitter.com/wa7son)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/watson/git-state/issues"
+  },
+  "homepage": "https://github.com/watson/git-state",
+  "coordinates": [
+    55.777897,
+    12.592192
+  ]
+}

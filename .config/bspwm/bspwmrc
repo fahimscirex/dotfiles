@@ -101,14 +101,14 @@ bspc rule -a zoom state=floating follow=on focus=on
 ## Autostart -------------------------------#
 
 # Kill if already running
-killall -9 sxhkd xsettingsd dunst conky
+killall -9 sxhkd xsettingsd dunst conky xfce4-clipman
 
 # Lauch notification daemon
-dunst \
--geom "280x50-10+40" -frame_width "1" -font "Iosevka Custom 9" \
--lb "$BACKGROUND" -lf "$FOREGROUND" -lfr "$BLUE" \
--nb "$BACKGROUND" -nf "$FOREGROUND" -nfr "$BLUE" \
--cb "$BACKGROUND" -cf "$RED" -cfr "$RED" &
+dunst &
+#-geom "280x50-10+40" -frame_width "1" -font "Iosevka Custom 9" \
+#-lb "$BACKGROUND" -lf "$FOREGROUND" -lfr "$BLUE" \
+#-nb "$BACKGROUND" -nf "$FOREGROUND" -nfr "$BLUE" \
+#-cb "$BACKGROUND" -cf "$RED" -cfr "$RED" &
 
 # Launch keybindings daemon
 sxhkd &
@@ -127,8 +127,8 @@ nitrogen --set-auto /usr/share/backgrounds/archlinux/simple.png &
 # Start mpd
 #exec mpd &
 
-# Start Parcellite
-exec parcellite &
+# Start Clipman
+exec xfce4-clipman &
 
 # Start bspwm scripts
 bspcolors
@@ -146,14 +146,14 @@ exec setxkbmap -layout us,bd -variant ,probhat -option grp:win_space_toggle &
 exec qbittorrent &
 
 # Caffeine
-exec caffeine &
+exec caffeine-ng &
 #exec caffeine-indicator &
 
 # Emoji Keyboard
 #exec emote &
 
 # Flameshot
-exec flameshot &
+#exec flameshot &
 
 # Polkit
 exec /usr/bin/polkit-dumb-agent &
